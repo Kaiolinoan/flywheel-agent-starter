@@ -1,2 +1,0 @@
-# Graded runtime deps only. The SDK itself uses the Python standard library.
-# Add your agent runtime deps below.
