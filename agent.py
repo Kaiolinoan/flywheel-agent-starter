@@ -304,10 +304,10 @@ def solve(ctx):
                 break
             error_context = extract_error_context(result)
             if error_context['has_error']:
-                ctx.reflect(f'execution error: {error_context['error_type']} - {error_context['details']}')
+                ctx.reflect(f"execution error: {error_context['error_type']} - {error_context['details']}")
                 left = turns - turn - 1
                 nudge_text = ' Only a few turns left!' if left <= 3 else ''
-                correction_message = f'ERROR: {error_context['error_type']}: {error_context['details']}\n\nSTRUCTURED CORRECTION:\n{error_context['correction_hint']}\n\nContinue with one corrected {TRIPLE_BACKTICK}python{TRIPLE_BACKTICK} block.{nudge_text}'
+                correction_message = f"ERROR: {error_context['error_type']}: {error_context['details']}\n\nSTRUCTURED CORRECTION:\n{error_context['correction_hint']}\n\nContinue with one corrected {TRIPLE_BACKTICK}python{TRIPLE_BACKTICK} block.{nudge_text}"
                 messages.append({'role': 'user', 'content': correction_message})
             else:
                 left = turns - turn - 1
